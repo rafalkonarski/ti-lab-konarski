@@ -1,0 +1,8 @@
+.site-header {
+    display: ;
+    justify-content: ;
+    align-items: center;
+}
+.menu { display: flex; gap: ;}
+.menu a { text-decoration: none; }
+.menu a:hover { color: ; }
