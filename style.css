@@ -1,9 +1,25 @@
 .site-header {
-    display: ;
-    justify-content: ;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
 }
-.menu { display: flex; gap: ;}
+
+.body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbfbfb;
+    color: #222;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+}
+.menu { display: flex; gap: 20px;}
 .menu a { text-decoration: none; }
-.menu a:hover { color: ; }
-..
+.menu a:hover { color: #007bff; } 
