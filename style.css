@@ -70,6 +70,12 @@
     text-align: left;
 }
 
+.main, .kontakt {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0px 8px;
+}
+
 .menu { display: flex; gap: 20px;}
 .menu a { text-decoration: none; }
 .menu a:hover { color: #007bff; transform:translateY(-6px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); } 
