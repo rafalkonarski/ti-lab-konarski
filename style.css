@@ -7,8 +7,8 @@
     border-bottom: 1px solid #e0e0e0;
 }
 
-.body {
-    font-family: Arial, sans-serif;
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fbfbfb;
@@ -24,23 +24,26 @@
 .cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    justify-content: center;
+    gap: 20px;
 }
 
 .card {
-    flex: 1 1 260px;
+    flex: 1 1 200px;
+    max-width: 250px;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    background-color: #ffffff;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .card--highlighted {
-    flex: 1 1 100%;
     border: 2px solid #007bff;
-    border-radius: 8px;
-    padding: 16px;
     background-color: #f0eeff;
 }
 
@@ -52,33 +55,43 @@
 }
 
 .num{
-    text-align: center;
+    text-align: right;
 }
 
 .price-table {
     width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
     border-collapse: collapse;
-    padding: 10px 16px;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.price-table__header {
-    text-align: center;
+.price-table th,
+.price-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
 }
 
 .service {
     text-align: left;
 }
 
-.main, .kontakt {
-    max-width: 960px;
+main, #kontakt {
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0px 8px;
+    padding: 0px 20px;
 }
+
+#kontakt p { margin: 4px 0; }
+
+#kontakt a { display: inline-block; margin: 2px 0; } 
 
 .menu { display: flex; gap: 20px;}
 .menu a { text-decoration: none; }
-.menu a:hover { color: #007bff; transform:translateY(-6px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); } 
+.menu a:hover { color: #007bff;}
 @media (max-width: 600px) {
     .site-header {
         flex-direction: column;
