@@ -1,83 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content = "width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
     <title>Szprycha - serwis rowerowy</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <p class="logo">Szprycha</p>
-        <nav class="menu">
-            <a href="#uslugi">Usługi</a>
-            <a href="#cennik">Cennik</a>
-            <a href="#kontakt">Kontakt</a>   
-        </nav>
+      <p class="logo">Szprycha</p>
+      <nav class="menu">
+        <a href="#uslugi">Usługi</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
     </header>
     <main>
-        <section id="uslugi">
-            <h2>Nasze usługi!</h2>
-                <div class="cards">
-                    <article class="card">
-                        <h3>Nazwa usługi - centrowanie koła</h3>
-                        <p>Krótki opis usługi jaka zostanie wykonana w Twoim rowerze.</p> 
-                        <p class="card_price">od XX zł</p>    
-                    </article>
-                    <article class="card--highlighted">
-                        <h3>Nazwa usługi - wymiana opon</h3>
-                        <p>Krótki opis usługi jaka zostanie wykonana w Twoim rowerze.</p> 
-                        <p>Najczęściej wykonywana usługa w naszej pracowni.</p> 
-                        <p class="card_price">od XX zł</p>    
-                    </article>
-                    <article class="card">
-                        <h3>Nazwa usługi - regulacja hamulców</h3>
-                        <p>Krótki opis usługi jaka zostanie wykonana w Twoim rowerze.</p> 
-                        <p class="card_price">od XX zł</p>    
-                    </article>
-                    <article class="card">
-                        <h3>Nazwa usługi - regulacja przerzutek</h3>
-                        <p>Krótki opis usługi jaka zostanie wykonana w Twoim rowerze.</p> 
-                        <p class="card_price">od XX zł</p>    
-                    </article>
-                </div>
-        </section>
-        <section id="cennik">
-            <h2>Cennik</h2>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th class="service">Usługa</th>
-                        <th class="num">Cena</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Centrowanie koła</td>
-                        <td class="num">XX zł</td>
-                    </tr>
-                    <tr>
-                        <td>Wymiana opon</td>
-                        <td class="num">XX zł</td>
-                    </tr>
-                    <tr>
-                        <td>Regulacja hamulców</td>
-                        <td class="num">XX zł</td>
-                    </tr>
-                    <tr>
-                        <td>Regulacja przerzutek</td>
-                        <td class="num">XX zł</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+      <section id="uslugi">
+        <h2>Nasze usługi!</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Centrowanie koła</h3>
+            <p>
+              Precyzyjne prostowanie obręczy, likwidacja bicia bocznego i
+              pionowego oraz kontrola naciągu szprych na tensometrze.
+            </p>
+            <p class="card_price">od 50 zł</p>
+          </article>
+          <article class="card card--highlighted">
+            <h3>Przeglad ogólny</h3>
+            <p>
+              Kompleksowe sprawdzenie bezpieczeństwa, regulacja hamulców i
+              napędu, kasowanie luzów oraz smarowanie kluczowych elementów. 
+            </p>
+            <p>Najczęściej wykonywana usługa w naszej pracowni.</p>
+            <p class="card_price">od 250 zł</p>
+          </article>
+          <article class="card">
+            <h3>Regulacja hamulców</h3>
+            <p>
+              Ustawienie klocków lub zacisków tarczowych, kasowanie luzu na
+              klamkach oraz ewentualna wymiana wyciągniętej linki.
+            </p>
+            <p class="card_price">od 30 zł</p>
+          </article>
+          <article class="card">
+            <h3>Regulacja przerzutek</h3>
+            <p>
+              Precyzyjne ustawienie zakresów i indeksacji biegów, prostowanie
+              haka przerzutki oraz czyszczenie i naoliwienie wózków.
+            </p>
+            <p class="card_price">od 50 zł</p>
+          </article>
+        </div>
+      </section>
+      <section id="cennik">
+        <h2>Cennik</h2>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th class="service">Usługa</th>
+              <th class="num">Cena</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Centrowanie koła</td>
+              <td class="num">50 zł</td>
+            </tr>
+            <tr>
+              <td>Przegląd ogólny</td>
+              <td class="num">250 zł</td>
+            </tr>
+            <tr>
+              <td>Regulacja hamulców</td>
+              <td class="num">30 zł</td>
+            </tr>
+            <tr>
+              <td>Regulacja przerzutek</td>
+              <td class="num">50 zł</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
     <footer id="kontakt">
-        <h3>Kontakt</h3>
-        <p>Pracownia rowerowa Szprycha</p>
-        <p>ul. Rowerowa 1, 00-000 Rowerowo</p>
-        <p><a href="tel:123456789">tel. 123-456-789</a></p>
-        <p><a href="mailto:kontakt@szprycha.pl">kontakt@szprycha.pl</a></p>
+      <h3>Kontakt</h3>
+      <p>Pracownia rowerowa Szprycha</p>
+      <p>ul. Rowerowa 1, 00-000 Rowerowo</p>
+      <p><a href="tel:123456789">tel. 123-456-789</a></p>
+      <p><a href="mailto:kontakt@szprycha.pl">kontakt@szprycha.pl</a></p>
     </footer>
-</body>
+  </body>
 </html>
