@@ -92,9 +92,23 @@ main, #kontakt {
 .menu { display: flex; gap: 20px;}
 .menu a { text-decoration: none; }
 .menu a:hover { color: #007bff;}
+.menu-toggle { display: none; }
 @media (max-width: 600px) {
     .site-header {
         flex-direction: column;
         align-items: flex-start;
     }
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    .menu {
+    display: none; /* Domyślnie zwijamy/ukrywamy menu */
+  }
+
+  .menu.menu--open {
+    display: flex; /* lub display: block - rozwinięcie po kliknięciu */
+    flex-direction: column;
+    gap: 10px;
+  }
 }

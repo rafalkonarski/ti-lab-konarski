@@ -22,6 +22,7 @@ $cennik = [
   <body>
     <header class="site-header">
       <p class="logo">Szprycha</p>
+      <button class="menu-toggle" aria-label="false">Menu</button>
       <nav class="menu">
         <a href="#uslugi">Usługi</a>
         <a href="#cennik">Cennik</a>
