@@ -17,6 +17,7 @@ $cennik = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <title>Szprycha - serwis rowerowy</title>
+    <script src="app.js" defer></script>
   </head>
   <body>
     <header class="site-header">
