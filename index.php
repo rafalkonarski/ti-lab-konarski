@@ -2,6 +2,8 @@
 $firma = 'Szprycha';
 $rok = date('2026');
 
+$imie = $_GET['imie'] ?? 'Gościu';
+
 $cennik = [
   ['nazwa' => 'Centrowanie koła', 'cena' => 50],
   ['nazwa' => 'Przegląd ogólny', 'cena' => 250],
@@ -97,6 +99,21 @@ $cennik = [
           </tbody>
         </table>
       </section>
+  <section id="bonus">
+    <p style="font-size: 1.2rem; margin: 20px 0;">
+      Cześć, <strong><?= htmlspecialchars($imie) ?></strong>!
+    </p>
+    <h3>Wykres cen usług (SVG + PHP)</h3>
+    <svg viewBox="0 0 350 <?= count($cennik) * 35 ?>" width="100%" style="max-width: 450px; background: #f4f4f4; padding: 10px; border-radius: 6px;">
+      <?php foreach ($cennik as $i => $usluga): 
+        $y = $i * 35 + 20;
+        $szerokosc = $usluga['cena']; // szerokość słupka równa cenie w px
+      ?>
+        <text x="0" y="<?= $y - 5 ?>" font-size="12" fill="#1D1A2F"><?= htmlspecialchars($usluga['nazwa']) ?> (<?= $usluga['cena'] ?> zł)</text>
+        <rect x="0" y="<?= $y ?>" width="<?= $szerokosc ?>" height="12" fill="#4426FF" rx="3" />
+      <?php endforeach; ?>
+    </svg>
+  </section>
     </main>
     <footer id="kontakt">
       <h3>Kontakt</h3>
