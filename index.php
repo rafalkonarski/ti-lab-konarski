@@ -1,17 +1,15 @@
 <?php
-$firma = 'Szprycha';
-$rok = date('2026');
-
+$firma = 'Szprycha — Serwis Rowerowy';
+$rok = date('Y');
 $imie = $_GET['imie'] ?? 'Gościu';
 
 $cennik = [
-  ['nazwa' => 'Centrowanie koła', 'cena' => 50],
-  ['nazwa' => 'Przegląd ogólny', 'cena' => 250],
-  ['nazwa' => 'Regulacja hamulców', 'cena' => 30],
-  ['nazwa' => 'Regulacja przerzutek', 'cena' => 50],
-  ['nazwa' => 'Dodatkowa: wymiana dętki', 'cena' => 30]
+    ['nazwa' => 'Centrowanie koła (tensometr)', 'czas' => '24h', 'cena' => 50],
+    ['nazwa' => 'Kompletny przegląd generalny', 'czas' => '48h', 'cena' => 250],
+    ['nazwa' => 'Odpowietrzanie i regulacja hamulców', 'czas' => '2h', 'cena' => 60],
+    ['nazwa' => 'Regulacja przerzutek', 'czas' => '3h', 'cena' => 50],
+    ['nazwa' => 'Zalanie opon mlekiem (Tubeless)', 'czas' => '1h', 'cena' => 45]
 ];
-
 ?>
 <!doctype html>
 <html lang="pl">
@@ -19,22 +17,26 @@ $cennik = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <title>Szprycha - serwis rowerowy</title>
+    <title><?= htmlspecialchars($firma) ?></title>
     <script src="app.js" defer></script>
   </head>
   <body>
     <header class="site-header">
       <a class="logo" href="#">
-      <svg viewBox="0 0 120 64" width="72" height="38" role="img" aria-labelledby="logo-tytul">
-        <title id="logo-tytul">Szprycha</title>
-        <circle cx="28" cy="42" r="18" fill="none" stroke="#4426FF" stroke-width="5"/>
-        <circle cx="92" cy="42" r="18" fill="none" stroke="#4426FF" stroke-width="5"/>
-        <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#1D1A2F" stroke-width="5"/>
-        <polyline points="48,14 60,42 80,14" fill="none" stroke="#1D1A2F" stroke-width="5"/>
-      </svg>
-      <span>Szprycha</span>
+        <svg viewBox="0 0 120 64" width="60" height="32" role="img" aria-labelledby="logo-tytul">
+          <title id="logo-tytul">Szprycha</title>
+          <circle cx="28" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
+          <circle cx="92" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
+          <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+          <polyline points="48,14 60,42 80,14" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <span>Szprycha</span>
       </a>
-      <button class="menu-toggle" aria-label="false">Menu</button>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Przełącz nawigację">
+        Menu
+      </button>
+
       <nav class="menu">
         <a href="#uslugi">Usługi</a>
         <a href="#cennik">Cennik</a>
@@ -42,86 +44,106 @@ $cennik = [
       </nav>
     </header>
     <main>
+  <section class="powitanie-box">
+        <div class="powitanie-tekst">
+          <span class="user-greeting">Cześć, <strong><?= htmlspecialchars($imie) ?></strong>!</span>
+          <h1>Twoja pasja, nasza precyzja.<br>Serwis rowerowy na najwyższym poziomie.</h1>
+          <p>
+            Nie traktujemy rowerów taśmowo. Niezależnie czy przygotowujesz gravela na ultramaraton, czy szosę na szybką ustawkę — każdy napęd myjemy ultradźwiękowo, a naciąg szprych badamy tensometrycznie.
+          </p>
+          <div class="powitanie-akcje">
+            <a href="tel:500100100" class="btn btn-primary">Umów serwis: 500 100 100</a>
+            <a href="#cennik" class="btn btn-secondary">Zobacz cennik &darr;</a>
+          </div>
+        </div>
+
+        <div class="powitanie-rower">
+          <svg viewBox="0 0 120 64" width="100%" height="auto" role="img" aria-label="Rower serwisowy">
+            <circle cx="28" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
+            <circle cx="92" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
+            <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+            <polyline points="48,14 60,42 80,14" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+    </section>
       <section id="uslugi">
-        <h2>Nasze usługi!</h2>
+        <h2>Nasze usługi</h2>
         <div class="cards">
           <article class="card">
-            <h3>Centrowanie koła</h3>
-            <p>
-              Precyzyjne prostowanie obręczy, likwidacja bicia bocznego i
-              pionowego oraz kontrola naciągu szprych na tensometrze.
-            </p>
-            <p class="card_price">od 50 zł</p>
+            <h3>Centrowanie kół</h3>
+            <p>Precyzyjne wyważenie obręczy z mikrometryczną regulacją naciągu szprych na tensometrze cyfrowym.</p>
+            <div class="card_price">od 50 zł</div>
           </article>
+
           <article class="card card--highlighted">
-            <h3>Przeglad ogólny</h3>
-            <p>
-              Kompleksowe sprawdzenie bezpieczeństwa, regulacja hamulców i
-              napędu, kasowanie luzów oraz smarowanie kluczowych elementów. 
-            </p>
-            <p>Najczęściej wykonywana usługa w naszej pracowni.</p>
-            <p class="card_price">od 250 zł</p>
+            <h3>Przegląd Ogólny PRO</h3>
+            <p>Kompletne czyszczenie ultradźwiękowe napędu, kasowanie luzów, smarowanie łożysk i regulacja.</p>
+            <div class="card_price">od 250 zł</div>
           </article>
+
           <article class="card">
-            <h3>Regulacja hamulców</h3>
-            <p>
-              Ustawienie klocków lub zacisków tarczowych, kasowanie luzu na
-              klamkach oraz ewentualna wymiana wyciągniętej linki.
-            </p>
-            <p class="card_price">od 30 zł</p>
+            <h3>Układ hamulcowy</h3>
+            <p>Wymiana płynu hydraulicznego, montaż klocków i odtłuszczanie tarcz.</p>
+            <div class="card_price">od 60 zł</div>
           </article>
+
           <article class="card">
             <h3>Regulacja przerzutek</h3>
-            <p>
-              Precyzyjne ustawienie zakresów i indeksacji biegów, prostowanie
-              haka przerzutki oraz czyszczenie i naoliwienie wózków.
-            </p>
-            <p class="card_price">od 50 zł</p>
+            <p>Wyrównanie haka ramy miernikiem laserowym i precyzyjne strojenie indeksacji biegów.</p>
+            <div class="card_price">od 50 zł</div>
           </article>
         </div>
       </section>
+
       <section id="cennik">
-        <h2>Cennik</h2>
+        <h2>Cennik stanowiskowy</h2>
         <table class="price-table">
           <thead>
             <tr>
-              <th class="service">Usługa</th>
+              <th class="service">Zakres prac serwisowych</th>
+              <th>Szacowany czas</th>
               <th class="num">Cena</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($cennik as $usluga) : ?>
+            <?php foreach ($cennik as $usluga): ?>
               <tr>
-                <td> <?= htmlspecialchars($usluga['nazwa']) ?></td>
-                <td> <?= $usluga['cena'] ?> zł </td>
+                <td class="service"><?= htmlspecialchars($usluga['nazwa']) ?></td>
+                <td><?= htmlspecialchars($usluga['czas']) ?></td>
+                <td class="num"><?= $usluga['cena'] ?> zł</td>
               </tr>
-              <?php endforeach; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </section>
-  <section id="bonus">
-    <p style="font-size: 1.2rem; margin: 20px 0;">
-      Cześć, <strong><?= htmlspecialchars($imie) ?></strong>!
-    </p>
-    <h3>Wykres cen usług (SVG + PHP)</h3>
-    <svg viewBox="0 0 350 <?= count($cennik) * 35 ?>" width="100%" style="max-width: 450px; background: #f4f4f4; padding: 10px; border-radius: 6px;">
-      <?php foreach ($cennik as $i => $usluga): 
-        $y = $i * 35 + 20;
-        $szerokosc = $usluga['cena']; // szerokość słupka równa cenie w px
-      ?>
-        <text x="0" y="<?= $y - 5 ?>" font-size="12" fill="#1D1A2F"><?= htmlspecialchars($usluga['nazwa']) ?> (<?= $usluga['cena'] ?> zł)</text>
-        <rect x="0" y="<?= $y ?>" width="<?= $szerokosc ?>" height="12" fill="#4426FF" rx="3" />
-      <?php endforeach; ?>
-    </svg>
-  </section>
-    </main>
+      <section id="bonus-wykres">
+        <h2>Wykres cen</h2>
+        <svg viewBox="0 0 280 145" width="100%" class="chart-svg">
+          <text x="0" y="12" font-size="11" fill="#0f172a">Centrowanie kół (50 zł)</text>
+          <rect x="0" y="16" width="50" height="9" fill="#0f766e" rx="2" />
+
+          <text x="0" y="39" font-size="11" fill="#0f172a">Przegląd Ogólny PRO (250 zł)</text>
+          <rect x="0" y="43" width="250" height="9" fill="#0f766e" rx="2" />
+
+          <text x="0" y="66" font-size="11" fill="#0f172a">Układ hamulcowy (60 zł)</text>
+          <rect x="0" y="70" width="60" height="9" fill="#0f766e" rx="2" />
+
+          <text x="0" y="93" font-size="11" fill="#0f172a">Regulacja przerzutek (50 zł)</text>
+          <rect x="0" y="97" width="50" height="9" fill="#0f766e" rx="2" />
+
+          <text x="0" y="120" font-size="11" fill="#0f172a">Wymiana dętki (40 zł)</text>
+          <rect x="0" y="124" width="40" height="9" fill="#0f766e" rx="2" />
+        </svg>
+      </section>
     <footer id="kontakt">
-      <h3>Kontakt</h3>
-      <p>Pracownia rowerowa Szprycha</p>
-      <p>ul. Rowerowa 1, 85-601 Bydgoszcz</p>
-      <p><a href="tel:500100100">tel. 500-100-100</a></p>
-      <p><a href="mailto:kontakt@szprycha.pl">kontakt@szprycha.pl</a></p>
-      <p>&copy; <?= $rok ?> <?= $firma ?></p>
+      <h3>Kontakt i godziny otwarcia</h3>
+      <p>Warsztat: ul. Rowerowa 1, Bydgoszcz</p>
+      <p>Godziny otwarcia: Pn–Pt 09:00 – 18:00, Sob 10:00 – 14:00</p>
+      <p>Telefon: <a href="tel:500100100">500 100 100</a></p>
+      <p>E-mail: <a href="mailto:kontakt@szprycha.pl">kontakt@szprycha.pl</a></p>
+      <p style="margin-top: 14px; font-size: 0.85rem; color: #64748b;">
+        &copy; <?= $rok ?> <?= htmlspecialchars($firma) ?>
+      </p>
     </footer>
   </body>
 </html>
