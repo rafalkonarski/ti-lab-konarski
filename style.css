@@ -1,18 +1,19 @@
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+  color: #1e293b;
 }
 
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fbfbfb;
-    color: #222;
+/* --- NAGŁÓWEK --- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
 }
 
 .logo {
@@ -20,103 +21,212 @@ body {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: inherit;
-  font-weight: bold;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 1.1rem;
 }
 
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.menu a:hover {
+  color: #2563eb;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* --- GŁÓWNA TREŚĆ --- */
+main, #kontakt {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* --- TYTUŁ Z ROWEREM I ZACHĘTĄ --- */
+.section-heading {
+  margin: 16px 0 24px 0;
+}
+
+.heading-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.heading-title h2 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: #0f172a;
+}
+
+.heading-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 6px 0 0 0;
+}
+
+/* --- KARTY (DOKŁADNIE TWÓJ UKŁAD FLEXBOX) --- */
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .card {
-    flex: 1 1 200px;
-    max-width: 250px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex: 1 1 200px;
+  max-width: 250px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+  border-color: #cbd5e1;
 }
 
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* Wyróżniona karta z akcentem */
 .card--highlighted {
-    border: 2px solid #007bff;
-    background-color: #f0eeff;
+  border: 2px solid #2563eb;
+  background: #f0f7ff;
+}
+
+.card--highlighted h3 {
+  color: #1d4ed8;
 }
 
 .card_price {
-    font-weight: bold;
-    font-size: 18px;
-    color: #4426FF;
-    margin-top: 10px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #2563eb;
+  margin-top: auto;
+  padding-top: 10px;
 }
 
-.num{
-    text-align: right;
-}
-
+/* --- TABELA CENNIKA --- */
 .price-table {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px 0;
-    border-collapse: collapse;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
-.price-table th,
+.price-table th {
+  background-color: #f1f5f9;
+  color: #334155;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .price-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eee;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
 }
 
 .service {
-    text-align: left;
+  text-align: left;
 }
 
-main, #kontakt {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0px 20px;
+.num {
+  text-align: right;
+  font-weight: 700;
+  color: #0f172a;
 }
 
-#kontakt p { margin: 4px 0; }
+/* --- STOPKA --- */
+#kontakt {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 40px;
+  padding-top: 24px;
+}
 
-#kontakt a { display: inline-block; margin: 2px 0; } 
+#kontakt h3 {
+  margin-top: 0;
+  color: #0f172a;
+}
 
-.menu { display: flex; gap: 20px;}
-.menu a { text-decoration: none; }
-.menu a:hover { color: #007bff;}
-.menu-toggle { display: none; }
+#kontakt p {
+  margin: 4px 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+#kontakt a {
+  display: inline-block;
+  margin: 2px 0;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#kontakt a:hover {
+  text-decoration: underline;
+}
+
+/* --- MOBILKA (< 600px) --- */
 @media (max-width: 600px) {
-    .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .menu-toggle {
-        display: block;
-        padding: 8px 16px;
-        background-color: #1d1a2f;
-        color: #ffffff;
-        border: none;
-        border-radius: 4px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-    .menu {
-    display: none; 
-    }
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: block;
+    padding: 8px 14px;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+  }
+
   .menu.menu--open {
-    padding: none;
-    text-decoration: none;
-    color: inherit;
+    display: flex !important;
   }
 }
