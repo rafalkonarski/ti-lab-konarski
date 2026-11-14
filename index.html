@@ -1,140 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Szprycha — Serwis Rowerowy</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
-</head>
-<body>
-
-  <header class="site-header">
-    <a class="logo" href="#">
-      <svg viewBox="0 0 120 64" width="72" height="38" role="img" aria-labelledby="logo-tytul">
-        <title id="logo-tytul">Szprycha</title>
-        <circle cx="28" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
-        <circle cx="92" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
-        <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-        <polyline points="48,14 60,42 80,14" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-      <span>Szprycha</span>
-    </a>
-
-    <button class="menu-toggle" aria-expanded="false" aria-label="Przełącz menu">Menu</button>
-
-    <nav class="menu">
-      <a href="#uslugi">Usługi</a>
-      <a href="#cennik">Cennik</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="powitanie-box">
-      <div class="powitanie-tekst">
-        <span class="user-greeting">Cześć, <strong>Gościu</strong>!</span>
-        <h1>Twoja pasja, nasza precyzja.<br>Serwis rowerowy na najwyższym poziomie.</h1>
-        <p>
-          Nie traktujemy rowerów taśmowo. Niezależnie czy przygotowujesz gravela na ultramaraton, czy szosę na szybką ustawkę — każdy napęd myjemy ultradźwiękowo, a naciąg szprych badamy tensometrycznie.
-        </p>
-        <div class="powitanie-akcje">
-          <a href="tel:500100100" class="btn btn-primary">Umów serwis: 500 100 100</a>
-          <a href="#cennik" class="btn btn-secondary">Zobacz cennik &darr;</a>
-        </div>
-      </div>
-
-      <div class="powitanie-rower">
-        <svg viewBox="0 0 120 64" width="100%" height="auto" role="img" aria-label="Rower serwisowy">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Szprycha — Serwis Rowerowy</title>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">
+        <svg viewBox="0 0 120 64" width="60" height="32" role="img" aria-labelledby="logo-tytul">
+          <title id="logo-tytul">Szprycha</title>
           <circle cx="28" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
           <circle cx="92" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
           <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
           <polyline points="48,14 60,42 80,14" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
         </svg>
+        <span>Szprycha</span>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Przełącz nawigację">
+        Menu
+      </button>
+
+      <nav class="menu">
+        <a href="#uslugi">Usługi</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+    <main>
+      <section class="powitanie">
+        <div class="powitanie-tekst">
+          <span class="user-greeting">Cześć, <strong>Gościu</strong>!</span>
+          <h1>Twoja pasja,<br>nasza precyzja.</h1>
+          <p>
+            Pracownia rowerowa w Bydgoszczy. Nie traktujemy rowerów taśmowo: każdy napęd myjemy ultradźwiękowo, a naciąg szprych badamy tensometrem.
+          </p>
+          <div class="powitanie-akcje">
+            <a href="tel:500100100" class="btn btn-primary">Umów serwis: 500 100 100</a>
+            <a href="#cennik" class="btn btn-secondary">Zobacz cennik</a>
+          </div>
+          <div class="powitanie-info">
+            <div>
+              <span>Godziny</span>
+              <strong>Pn–Pt 9–18, Sob 10–14</strong>
+            </div>
+            <div>
+              <span>Adres</span>
+              <strong>ul. Rowerowa 1, Bydgoszcz</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="powitanie-rower">
+          <svg viewBox="0 0 120 64" aria-hidden="true">
+            <circle cx="28" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="4"/>
+            <circle cx="92" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="4"/>
+            <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="48,14 60,42 80,14" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </section>
+
+      <section id="uslugi">
+        <h2>Nasze usługi</h2>
+        <div class="cards">
+          <article class="card">
+            <span class="card__number">01</span>
+            <h3>Centrowanie kół</h3>
+            <p>Precyzyjne wyważenie obręczy z mikrometryczną regulacją naciągu szprych na tensometrze cyfrowym.</p>
+            <div class="card_price">od 50 zł</div>
+          </article>
+
+          <article class="card card--highlight">
+            <span class="card__number">02 · Polecany</span>
+            <h3>Przegląd Ogólny PRO</h3>
+            <p>Kompletne czyszczenie ultradźwiękowe napędu, kasowanie luzów, smarowanie łożysk i regulacja.</p>
+            <div class="card_price">od 250 zł</div>
+          </article>
+
+          <article class="card">
+            <span class="card__number">03</span>
+            <h3>Układ hamulcowy</h3>
+            <p>Wymiana płynu hydraulicznego, montaż klocków i odtłuszczanie tarcz.</p>
+            <div class="card_price">od 60 zł</div>
+          </article>
+
+          <article class="card">
+            <span class="card__number">04</span>
+            <h3>Regulacja przerzutek</h3>
+            <p>Wyrównanie haka ramy miernikiem laserowym i precyzyjne strojenie indeksacji biegów.</p>
+            <div class="card_price">od 50 zł</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="cennik">
+        <h2>Cennik stanowiskowy</h2>
+        <div class="cennik-uklad">
+          <div class="tabela-ramka">
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th class="service">Usługa</th>
+                  <th>Czas</th>
+                  <th class="num">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="service">Centrowanie koła (tensometr)</td>
+                  <td>24h</td>
+                  <td class="num">50 zł</td>
+                </tr>
+                <tr>
+                  <td class="service">Kompletny przegląd generalny</td>
+                  <td>48h</td>
+                  <td class="num">250 zł</td>
+                </tr>
+                <tr>
+                  <td class="service">Odpowietrzanie i regulacja hamulców</td>
+                  <td>2h</td>
+                  <td class="num">60 zł</td>
+                </tr>
+                <tr>
+                  <td class="service">Regulacja przerzutek</td>
+                  <td>3h</td>
+                  <td class="num">50 zł</td>
+                </tr>
+                <tr>
+                  <td class="service">Zalanie opon mlekiem (Tubeless)</td>
+                  <td>1h</td>
+                  <td class="num">45 zł</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <figure class="wykres">
+            <figcaption>Wykres cen</figcaption>
+            <svg viewBox="0 0 280 160" width="100%" class="chart-svg"
+                 role="img" aria-labelledby="wykres-tytul">
+              <title id="wykres-tytul">Porównanie cen usług</title>
+              <text x="0" y="13" font-size="12" fill="#0f172a">Centrowanie koła (tensometr) (50 zł)</text>
+              <rect x="0" y="18" height="10" rx="2" fill="#0f766e" width="54" />
+              <text x="0" y="45" font-size="12" fill="#0f172a">Kompletny przegląd generalny (250 zł)</text>
+              <rect x="0" y="50" height="10" rx="2" fill="#0f766e" width="270" />
+              <text x="0" y="77" font-size="12" fill="#0f172a">Odpowietrzanie i regulacja hamulców (60 zł)</text>
+              <rect x="0" y="82" height="10" rx="2" fill="#0f766e" width="65" />
+              <text x="0" y="109" font-size="12" fill="#0f172a">Regulacja przerzutek (50 zł)</text>
+              <rect x="0" y="114" height="10" rx="2" fill="#0f766e" width="54" />
+              <text x="0" y="141" font-size="12" fill="#0f172a">Zalanie opon mlekiem (Tubeless) (45 zł)</text>
+              <rect x="0" y="146" height="10" rx="2" fill="#0f766e" width="49" />
+            </svg>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer id="kontakt">
+      <div class="kontener">
+        <h2>Kontakt i godziny otwarcia</h2>
+        <div class="kontakt-kolumny">
+          <div>
+            <span>Warsztat</span>
+            <p>ul. Rowerowa 1, Bydgoszcz</p>
+          </div>
+          <div>
+            <span>Godziny</span>
+            <p>Pn–Pt 09:00–18:00<br>Sob 10:00–14:00</p>
+          </div>
+          <div>
+            <span>Telefon i e-mail</span>
+            <p><a href="tel:500100100">500 100 100</a></p>
+            <p><a href="mailto:kontakt@szprycha.pl">kontakt@szprycha.pl</a></p>
+          </div>
+        </div>
+        <p class="copyright">&copy; 2026 Szprycha — Serwis Rowerowy</p>
       </div>
-    </section>
-
-    <section id="uslugi">
-      <h2>Nasze usługi</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Centrowanie kół</h3>
-          <p>Precyzyjne wyważenie obręczy z mikrometryczną regulacją naciągu szprych na tensometrze cyfrowym.</p>
-          <div class="card_price">od 50 zł</div>
-        </article>
-
-        <article class="card card--highlight>
-          <h3>Przegląd Ogólny PRO</h3>
-          <p>Kompletne czyszczenie ultradźwiękowe napędu, kasowanie luzów, smarowanie łożysk i regulacja.</p>
-          <div class="card_price">od 250 zł</div>
-        </article>
-
-        <article class="card">
-          <h3>Układ hamulcowy</h3>
-          <p>Wymiana płynu hydraulicznego, montaż klocków i odtłuszczanie tarcz.</p>
-          <div class="card_price">od 60 zł</div>
-        </article>
-
-        <article class="card">
-          <h3>Regulacja przerzutek</h3>
-          <p>Wyrównanie haka ramy miernikiem laserowym i precyzyjne strojenie indeksacji biegów.</p>
-          <div class="card_price">od 50 zł</div>
-        </article>
-      </div>
-    </section>
-
-    <section id="cennik">
-      <h2>Cennik stanowiskowy</h2>
-      <table class="price-table">
-        <thead>
-          <tr>
-            <th class="service">Zakres prac serwisowych</th>
-            <th class="num">Cena</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Centrowanie kół</td>
-            <td class="num">50 zł</td>
-          </tr>
-          <tr>
-            <td>Przegląd Ogólny PRO</td>
-            <td class="num">250 zł</td>
-          </tr>
-          <tr>
-            <td>Układ hamulcowy</td>
-            <td class="num">60 zł</td>
-          </tr>
-          <tr>
-            <td>Regulacja przerzutek</td>
-            <td class="num">50 zł</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="bonus-wykres">
-      <h2>Wykres cen</h2>
-      <svg viewBox="0 0 280 120" width="100%" class="chart-svg">
-        <text x="0" y="12" font-size="11" fill="#0f172a">Centrowanie kół (50 zł)</text>
-        <rect x="0" y="16" width="50" height="9" fill="#0f766e" rx="2" />
-
-        <text x="0" y="39" font-size="11" fill="#0f172a">Przegląd Ogólny PRO (250 zł)</text>
-        <rect x="0" y="43" width="250" height="9" fill="#0f766e" rx="2" />
-
-        <text x="0" y="66" font-size="11" fill="#0f172a">Układ hamulcowy (60 zł)</text>
-        <rect x="0" y="70" width="60" height="9" fill="#0f766e" rx="2" />
-
-        <text x="0" y="93" font-size="11" fill="#0f172a">Regulacja przerzutek (50 zł)</text>
-        <rect x="0" y="97" width="50" height="9" fill="#0f766e" rx="2" />
-      </svg>
-    </section>
-  </main>
-
-  <footer id="kontakt">
-    <p>Adres: ul. Rowerowa 1, Bydgoszcz</p>
-    <p>Telefon: <a href="tel:500100100">500 100 100</a></p>
-    <p>&copy; 2026 Szprycha</p>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
