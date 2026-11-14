@@ -10,28 +10,14 @@ $cennik = [
     ['nazwa' => 'Regulacja przerzutek', 'czas' => '3h', 'cena' => 50],
     ['nazwa' => 'Zalanie opon mlekiem (Tubeless)', 'czas' => '1h', 'cena' => 45]
 ];
-
-$najdrozsza = max(array_column($cennik, 'cena'));
-$wysokoscWykresu = count($cennik) * 27;
-?>
-<svg viewBox="0 0 280 <?= $wysokoscWykresu ?>" width="100%" class="chart-svg"
-     role="img" aria-labelledby="wykres-tytul">
-  <title id="wykres-tytul">Porównanie cen usług</title>
-  <?php foreach ($cennik as $i => $usluga): ?>
-    <?php $y = $i * 27; ?>
-    <text x="0" y="<?= $y + 12 ?>" font-size="11" fill="#0f172a">
-      <?= htmlspecialchars($usluga['nazwa']) ?> (<?= $usluga['cena'] ?> zł)
-    </text>
-    <rect x="0" y="<?= $y + 16 ?>" height="9" rx="2" fill="#0f766e"
-          width="<?= round($usluga['cena'] / $najdrozsza * 270) ?>" />
-  <?php endforeach; ?>
-</svg>
 ?>
 <!doctype html>
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title><?= htmlspecialchars($firma) ?></title>
     <script src="app.js" defer></script>
@@ -60,50 +46,65 @@ $wysokoscWykresu = count($cennik) * 27;
       </nav>
     </header>
     <main>
-  <section class="powitanie-box">
+      <section class="powitanie">
         <div class="powitanie-tekst">
           <span class="user-greeting">Cześć, <strong><?= htmlspecialchars($imie) ?></strong>!</span>
-          <h1>Twoja pasja, nasza precyzja.<br>Serwis rowerowy na najwyższym poziomie.</h1>
+          <h1>Twoja pasja,<br>nasza precyzja.</h1>
           <p>
-            Nie traktujemy rowerów taśmowo. Niezależnie czy przygotowujesz gravela na ultramaraton, czy szosę na szybką ustawkę — każdy napęd myjemy ultradźwiękowo, a naciąg szprych badamy tensometrycznie.
+            Pracownia rowerowa w Bydgoszczy. Nie traktujemy rowerów taśmowo: każdy napęd myjemy ultradźwiękowo, a naciąg szprych badamy tensometrem.
           </p>
           <div class="powitanie-akcje">
             <a href="tel:500100100" class="btn btn-primary">Umów serwis: 500 100 100</a>
-            <a href="#cennik" class="btn btn-secondary">Zobacz cennik &darr;</a>
+            <a href="#cennik" class="btn btn-secondary">Zobacz cennik</a>
+          </div>
+          <div class="powitanie-info">
+            <div>
+              <span>Godziny</span>
+              <strong>Pn–Pt 9–18, Sob 10–14</strong>
+            </div>
+            <div>
+              <span>Adres</span>
+              <strong>ul. Rowerowa 1, Bydgoszcz</strong>
+            </div>
           </div>
         </div>
 
         <div class="powitanie-rower">
-          <svg viewBox="0 0 120 64" width="100%" height="auto" role="img" aria-label="Rower serwisowy">
-            <circle cx="28" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
-            <circle cx="92" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="5"/>
-            <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-            <polyline points="48,14 60,42 80,14" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+          <svg viewBox="0 0 120 64" aria-hidden="true">
+            <circle cx="28" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="4"/>
+            <circle cx="92" cy="42" r="18" fill="none" stroke="#0f766e" stroke-width="4"/>
+            <polyline points="28,42 48,14 80,14 92,42" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="48,14 60,42 80,14" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-    </section>
+      </section>
+
       <section id="uslugi">
         <h2>Nasze usługi</h2>
         <div class="cards">
           <article class="card">
+            <span class="card__number">01</span>
             <h3>Centrowanie kół</h3>
             <p>Precyzyjne wyważenie obręczy z mikrometryczną regulacją naciągu szprych na tensometrze cyfrowym.</p>
             <div class="card_price">od 50 zł</div>
           </article>
 
           <article class="card card--highlight">
+            <span class="card__number">02 · Polecany</span>
             <h3>Przegląd Ogólny PRO</h3>
             <p>Kompletne czyszczenie ultradźwiękowe napędu, kasowanie luzów, smarowanie łożysk i regulacja.</p>
             <div class="card_price">od 250 zł</div>
           </article>
 
           <article class="card">
+            <span class="card__number">03</span>
             <h3>Układ hamulcowy</h3>
             <p>Wymiana płynu hydraulicznego, montaż klocków i odtłuszczanie tarcz.</p>
             <div class="card_price">od 60 zł</div>
           </article>
 
           <article class="card">
+            <span class="card__number">04</span>
             <h3>Regulacja przerzutek</h3>
             <p>Wyrównanie haka ramy miernikiem laserowym i precyzyjne strojenie indeksacji biegów.</p>
             <div class="card_price">od 50 zł</div>
@@ -113,54 +114,70 @@ $wysokoscWykresu = count($cennik) * 27;
 
       <section id="cennik">
         <h2>Cennik stanowiskowy</h2>
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th class="service">Zakres prac serwisowych</th>
-              <th>Szacowany czas</th>
-              <th class="num">Cena</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($cennik as $usluga): ?>
-              <tr>
-                <td class="service"><?= htmlspecialchars($usluga['nazwa']) ?></td>
-                <td><?= htmlspecialchars($usluga['czas']) ?></td>
-                <td class="num"><?= $usluga['cena'] ?> zł</td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-      </section>
-      <section id="bonus-wykres">
-        <h2>Wykres cen</h2>
-        <svg viewBox="0 0 280 145" width="100%" class="chart-svg">
-          <text x="0" y="12" font-size="11" fill="#0f172a">Centrowanie kół (50 zł)</text>
-          <rect x="0" y="16" width="50" height="9" fill="#0f766e" rx="2" />
+        <div class="cennik-uklad">
+          <div class="tabela-ramka">
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th class="service">Usługa</th>
+                  <th>Czas</th>
+                  <th class="num">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($cennik as $usluga): ?>
+                  <tr>
+                    <td class="service"><?= htmlspecialchars($usluga['nazwa']) ?></td>
+                    <td><?= htmlspecialchars($usluga['czas']) ?></td>
+                    <td class="num"><?= $usluga['cena'] ?> zł</td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
 
-          <text x="0" y="39" font-size="11" fill="#0f172a">Przegląd Ogólny PRO (250 zł)</text>
-          <rect x="0" y="43" width="250" height="9" fill="#0f766e" rx="2" />
-
-          <text x="0" y="66" font-size="11" fill="#0f172a">Układ hamulcowy (60 zł)</text>
-          <rect x="0" y="70" width="60" height="9" fill="#0f766e" rx="2" />
-
-          <text x="0" y="93" font-size="11" fill="#0f172a">Regulacja przerzutek (50 zł)</text>
-          <rect x="0" y="97" width="50" height="9" fill="#0f766e" rx="2" />
-
-          <text x="0" y="120" font-size="11" fill="#0f172a">Wymiana dętki (40 zł)</text>
-          <rect x="0" y="124" width="40" height="9" fill="#0f766e" rx="2" />
-        </svg>
+          <figure class="wykres">
+            <figcaption>Wykres cen</figcaption>
+            <?php
+            $najdrozsza = max(array_column($cennik, 'cena'));
+            $wysokoscWiersza = 32;
+            $wysokoscWykresu = count($cennik) * $wysokoscWiersza;
+            ?>
+            <svg viewBox="0 0 280 <?= $wysokoscWykresu ?>" width="100%" class="chart-svg"
+                 role="img" aria-labelledby="wykres-tytul">
+              <title id="wykres-tytul">Porównanie cen usług</title>
+              <?php foreach ($cennik as $i => $usluga): ?>
+                <?php $y = $i * $wysokoscWiersza; ?>
+                <text x="0" y="<?= $y + 13 ?>" font-size="12" fill="#0f172a"><?= htmlspecialchars($usluga['nazwa']) ?> (<?= $usluga['cena'] ?> zł)</text>
+                <rect x="0" y="<?= $y + 18 ?>" height="10" rx="2" fill="#0f766e"
+                      width="<?= round($usluga['cena'] / $najdrozsza * 270) ?>" />
+              <?php endforeach; ?>
+            </svg>
+          </figure>
+        </div>
       </section>
     </main>
+
     <footer id="kontakt">
-      <h3>Kontakt i godziny otwarcia</h3>
-      <p>Warsztat: ul. Rowerowa 1, Bydgoszcz</p>
-      <p>Godziny otwarcia: Pn–Pt 09:00 – 18:00, Sob 10:00 – 14:00</p>
-      <p>Telefon: <a href="tel:500100100">500 100 100</a></p>
-      <p>E-mail: <a href="mailto:kontakt@szprycha.pl">kontakt@szprycha.pl</a></p>
-      <p style="margin-top: 14px; font-size: 0.85rem; color: #64748b;">
-        &copy; <?= $rok ?> <?= htmlspecialchars($firma) ?>
-      </p>
+      <div class="kontener">
+        <h2>Kontakt i godziny otwarcia</h2>
+        <div class="kontakt-kolumny">
+          <div>
+            <span>Warsztat</span>
+            <p>ul. Rowerowa 1, Bydgoszcz</p>
+          </div>
+          <div>
+            <span>Godziny</span>
+            <p>Pn–Pt 09:00–18:00<br>Sob 10:00–14:00</p>
+          </div>
+          <div>
+            <span>Telefon i e-mail</span>
+            <p><a href="tel:500100100">500 100 100</a></p>
+            <p><a href="mailto:kontakt@szprycha.pl">kontakt@szprycha.pl</a></p>
+          </div>
+        </div>
+        <p class="copyright">&copy; <?= $rok ?> <?= htmlspecialchars($firma) ?></p>
+      </div>
     </footer>
   </body>
 </html>
