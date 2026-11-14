@@ -135,6 +135,7 @@ $cennik = [
           <rect x="0" y="124" width="40" height="9" fill="#0f766e" rx="2" />
         </svg>
       </section>
+    </main>
     <footer id="kontakt">
       <h3>Kontakt i godziny otwarcia</h3>
       <p>Warsztat: ul. Rowerowa 1, Bydgoszcz</p>
