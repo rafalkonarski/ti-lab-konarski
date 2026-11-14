@@ -10,6 +10,22 @@ $cennik = [
     ['nazwa' => 'Regulacja przerzutek', 'czas' => '3h', 'cena' => 50],
     ['nazwa' => 'Zalanie opon mlekiem (Tubeless)', 'czas' => '1h', 'cena' => 45]
 ];
+
+$najdrozsza = max(array_column($cennik, 'cena'));
+$wysokoscWykresu = count($cennik) * 27;
+?>
+<svg viewBox="0 0 280 <?= $wysokoscWykresu ?>" width="100%" class="chart-svg"
+     role="img" aria-labelledby="wykres-tytul">
+  <title id="wykres-tytul">Porównanie cen usług</title>
+  <?php foreach ($cennik as $i => $usluga): ?>
+    <?php $y = $i * 27; ?>
+    <text x="0" y="<?= $y + 12 ?>" font-size="11" fill="#0f172a">
+      <?= htmlspecialchars($usluga['nazwa']) ?> (<?= $usluga['cena'] ?> zł)
+    </text>
+    <rect x="0" y="<?= $y + 16 ?>" height="9" rx="2" fill="#0f766e"
+          width="<?= round($usluga['cena'] / $najdrozsza * 270) ?>" />
+  <?php endforeach; ?>
+</svg>
 ?>
 <!doctype html>
 <html lang="pl">
@@ -75,7 +91,7 @@ $cennik = [
             <div class="card_price">od 50 zł</div>
           </article>
 
-          <article class="card card--highlighted">
+          <article class="card card--highlight">
             <h3>Przegląd Ogólny PRO</h3>
             <p>Kompletne czyszczenie ultradźwiękowe napędu, kasowanie luzów, smarowanie łożysk i regulacja.</p>
             <div class="card_price">od 250 zł</div>
