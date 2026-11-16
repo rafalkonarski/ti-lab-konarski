@@ -10,7 +10,7 @@ if (!empty($_SESSION['uzytkownik'])) {
 $blad = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $z = $pdo->prepare('SELECT login, haso_hash, FROM uzytkownicy WHERE login =:login');
+    $z = $pdo->prepare('SELECT login, haslo_hash FROM uzytkownicy WHERE login = :login');
     $z->execute(['login' => trim($_POST['login'] ?? '')]);
     $u = $z->fetch();
 

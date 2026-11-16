@@ -4,7 +4,7 @@ $rok = date('Y');
 $imie = $_GET['imie'] ?? 'Gościu';
 
 require 'baza.php';
-$cennik = $pdo->query('SELECT nazwa, czas, cena FROM')
+$cennik = $pdo->query('SELECT nazwa, czas, cena FROM uslugi ORDER BY cena')->fetchAll();
 
 ?>
 <!doctype html>

@@ -25,7 +25,7 @@ login TEXT NOT NULL UNIQUE,
 haslo_hash TEXT NOT NULL
 )');
 
-$liczbaUslug = $pdo->query('SELECT COUNT (*) FROM "uslugi') -> fetchColumn();
+$liczbaUslug = $pdo->query('SELECT COUNT(*) FROM uslugi')->fetchColumn();
 if ($liczbaUslug == 0){
     $z = $pdo->prepare('INSERT INTO uslugi(nazwa, czas, cena, popularnosc)
     VALUES (:nazwa, :czas, :cena, :popularnosc)');
