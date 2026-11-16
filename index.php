@@ -3,13 +3,9 @@ $firma = 'Szprycha — Serwis Rowerowy';
 $rok = date('Y');
 $imie = $_GET['imie'] ?? 'Gościu';
 
-$cennik = [
-    ['nazwa' => 'Centrowanie koła (tensometr)', 'czas' => '24h', 'cena' => 50],
-    ['nazwa' => 'Kompletny przegląd generalny', 'czas' => '48h', 'cena' => 250],
-    ['nazwa' => 'Odpowietrzanie i regulacja hamulców', 'czas' => '2h', 'cena' => 60],
-    ['nazwa' => 'Regulacja przerzutek', 'czas' => '3h', 'cena' => 50],
-    ['nazwa' => 'Zalanie opon mlekiem (Tubeless)', 'czas' => '1h', 'cena' => 45]
-];
+require 'baza.php';
+$cennik = $pdo->query('SELECT nazwa, czas, cena FROM')
+
 ?>
 <!doctype html>
 <html lang="pl">
@@ -139,7 +135,7 @@ $cennik = [
           <figure class="wykres">
             <figcaption>Wykres cen</figcaption>
             <?php
-            $najdrozsza = max(array_column($cennik, 'cena'));
+            $najdrozsza = $cennik ? max(array_column($cennik, 'cena')) : 1;
             $wysokoscWiersza = 32;
             $wysokoscWykresu = count($cennik) * $wysokoscWiersza;
             ?>
