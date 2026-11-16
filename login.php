@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $z->execute(['login' => trim($_POST['login'] ?? '')]);
     $u = $z->fetch();
 
-    if ($u && password_verufy ($_POST['haslo'] ?? '', $u['haslo_hash'])) {
+    if ($u && password_verify ($_POST['haslo'] ?? '', $u['haslo_hash'])) {
         session_regenerate_id(true);
         $_SESSION['uzytkownik'] = $u['login'];
         header('Location: admin.php');
